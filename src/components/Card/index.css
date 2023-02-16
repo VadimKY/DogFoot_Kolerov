@@ -105,7 +105,7 @@
     stroke: #7B8E98;
 }
 
-.card__favorite_is__active svg {
+.card__favorite_is-active svg {
     fill: #F44336;
     stroke-width: 0;
 }
