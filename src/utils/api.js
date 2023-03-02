@@ -2,7 +2,6 @@ const onResponse = (res) => {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
 }
 
-
 class Api {
     constructor({baseUrl, headers}) {
         this._headers = headers;
@@ -21,11 +20,17 @@ class Api {
         }).then(onResponse)
     }
 
+    getProductById(idProduct) {
+        return fetch(`${this._baseUrl}/products/${idProduct}`, {
+            headers: this._headers,
+        }).then(onResponse)
+    }
+
     setUserInfo(dataUser) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
-            body: JSON.stringify(dataUser)
+            body: JSON.stringify(dataUser),
         }).then(onResponse)
     }
 
@@ -41,20 +46,13 @@ class Api {
             headers: this._headers,
         }).then(onResponse)
     }
-
-   // postUserDelete(postId) {
-    //    return fetch(`${this._baseUrl}/v2/:groupId/posts/${postId}`, {
-  //          method: 'DELETE',
-   //         headers: this._headers,
-  //      }).then(onResponse)
-   // }
 }
 
 const config = {
     baseUrl: 'https://api.react-learning.ru',
     headers: {
-        'Content-Type' : 'application/json',
-        Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2VhNDgwZDU5Yjk4YjAzOGY3N2I1YjUiLCJncm91cCI6ItC10YAiLCJpYXQiOjE2NzYzMDI1NDUsImV4cCI6MTcwNzgzODU0NX0.k6Xul9kmVaYPOqOqtzNL99i5z0oxXEXh2dMieH05zlg"
+        'Content-Type': 'application/json',
+        Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2VhNDgwZDU5Yjk4YjAzOGY3N2I1YjUiLCJncm91cCI6ItC10YAiLCJpYXQiOjE2NzYzMDI1NDUsImV4cCI6MTcwNzgzODU0NX0.k6Xul9kmVaYPOqOqtzNL99i5z0oxXEXh2dMieH05zlg'
     }
 }
 

@@ -25,9 +25,6 @@ img {
 .content {
   padding: 20px 0;
   flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .content__sort {
@@ -40,4 +37,8 @@ img {
   min-height: 100vh;
 }
 
+:root {
+  --text-main-color: #1A1A1A;
 
+  --primary-main-color: #FFE44D;
+}
