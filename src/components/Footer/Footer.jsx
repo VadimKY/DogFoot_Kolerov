@@ -5,6 +5,7 @@ import viber from "./img/viber.svg";
 import whatsapp from "./img/whatsapp.svg";
 import vk from "./img/vk.svg";
 import Logo from "../Logo/Logo";
+//import Logo from "../Logo/Logo";
 
 
 const Footer = () => {
@@ -13,7 +14,7 @@ const Footer = () => {
             <div className="container">
                 <div className="footer__wrapper">
                     <div className="footer__col">
-                        <Logo className="logo footer__logo" title="Логотип" aria-hidden={true}/>
+                        <Logo  className="logo footer__logo" title="Логотип" aria-hidden={true}/>
                         <p className="footer__copyright">
                             © «Интернет-магазин DogFood.ru»
                         </p>

@@ -4,27 +4,25 @@
     font-weight: 700;
     line-height: 20px;
     border-radius: 55px;
-    border: 1px solid #7b8e98;
-    color: var(--text-main-color);
+    border: 1px solid #cfd8dc;
     text-decoration: none;
     display: inline-block;
     transition: background-color .3s;
     cursor: pointer;
+    color: var(--text-main-color);
 }
 
 .primary {
     background-color: var(--primary-main-color);
 }
-
 .primary:hover {
     background-color: #FFAA0D;
     color: #F44336;
 }
 
 .secondary {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
-
 .secondary:hover {
-    background-color: #e5e0dc;
+    background-color: #FFAA0D;
 }

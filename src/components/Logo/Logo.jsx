@@ -1,5 +1,5 @@
 import './index.css';
-import logoSrc from './logo.svg'
+import logoSrc from './logo.svg';
 
 function Logo({className, href, ...restProps}) {
   return (

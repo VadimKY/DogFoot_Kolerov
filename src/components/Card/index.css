@@ -100,9 +100,9 @@
 }
 
 .card__favorite svg {
-    fill: #FFFFFF;
+    fill: #CFD8DC;
     stroke-width: 1px;
-    stroke: #7b8e98;
+    stroke: #7B8E98;
 }
 
 .card__favorite_is-active svg {
@@ -127,7 +127,7 @@
     font-weight: 700;
     line-height: 20px;
     border-radius: 55px;
-    border: 1px solid #7b8e98;
+    border: 1px solid #cfd8dc;
     text-decoration: none;
     display: inline-block;
     transition: background-color .3s;
@@ -140,6 +140,7 @@
     background-color: #FFAA0D;
     color: #F44336;
 }
+
 
 
 .tag {

@@ -1,11 +1,3 @@
-.wrapperLoader {
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container {
     max-width: 1024px;
     padding-left: 16px;
@@ -30,8 +22,8 @@
 }
 
 .imgWrapper {
-     flex: 1;
- }
+    flex: 1;
+}
 
 .desc {
     max-width: 400px;
@@ -188,7 +180,7 @@
 }
 
 .favorite svg {
-    fill: #ffffff;
+    fill: #e6f6d8;
 }
 
 .favoriteActive svg {
