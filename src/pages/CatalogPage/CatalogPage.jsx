@@ -15,7 +15,7 @@ const CatalogPage = () => {
   return (
       <>
           <ContentHeader title="Каталог"/>
-          <Sort />
+          {/*<Sort />*/}
           {cards.length === 0 ? (
               <div className='cards'>
                   {skeletonArray}

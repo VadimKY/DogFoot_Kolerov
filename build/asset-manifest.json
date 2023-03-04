@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/DogFoot_Kolerov/static/css/main.6741bbad.css",
-    "main.js": "/DogFoot_Kolerov/static/js/main.ec9348c7.js",
+    "main.js": "/DogFoot_Kolerov/static/js/main.daceed58.js",
     "static/media/logo.svg": "/DogFoot_Kolerov/static/media/logo.4f9d699de55eb25e196ecc4c87a15a5e.svg",
     "static/media/quality.svg": "/DogFoot_Kolerov/static/media/quality.8eb6560a188790582a8aaddc99e116ea.svg",
     "static/media/instagram.svg": "/DogFoot_Kolerov/static/media/instagram.956b8b96f88dffb83538a98dacc779f4.svg",
@@ -17,10 +17,10 @@
     "static/media/ic-search.svg": "/DogFoot_Kolerov/static/media/ic-search.296528dfccff6373f75e8f75d02e833a.svg",
     "static/media/telegram.svg": "/DogFoot_Kolerov/static/media/telegram.0482cc32b8264da43460df72f2a03373.svg",
     "main.6741bbad.css.map": "/DogFoot_Kolerov/static/css/main.6741bbad.css.map",
-    "main.ec9348c7.js.map": "/DogFoot_Kolerov/static/js/main.ec9348c7.js.map"
+    "main.daceed58.js.map": "/DogFoot_Kolerov/static/js/main.daceed58.js.map"
   },
   "entrypoints": [
     "static/css/main.6741bbad.css",
-    "static/js/main.ec9348c7.js"
+    "static/js/main.daceed58.js"
   ]
 }
