@@ -1,5 +1,5 @@
 import Header from "../Header/Header";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import Footer from "../Footer/Footer";
@@ -13,9 +13,12 @@ import ProductPage from "../../pages/ProductPage/ProductPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import {UserContext} from "../../context/userContext";
 import {CardContext} from "../../context/cardContext";
+import FavouritesPage from "../../pages/FavouritesPage/FavouritesPage";
+
 
 function Application() {
     const [cards, setCards] = useState([]);
+    const [favourites, setFavourites] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +29,10 @@ function Application() {
         Promise.all([api.getUserInfo(), api.getProductList()])
             .then(([userData, cardData]) => {
                 setCurrentUser(userData);
-                setCards(cardData.products);
+                setCards(cardData.products); //получаем карточки с сервера
+                const favouritesProducts = cardData.products.filter(item => isLiked(item.likes, userData._id)); //избранное
+                console.log(favouritesProducts);
+                setFavourites(favouritesProducts);
             })
             .catch(err => console.error(err))
             .finally(() => {
@@ -62,21 +68,29 @@ function Application() {
         })
     }
 
-    const handleProductLike = (product) => {
+    const handleProductLike = useCallback((product) => {
         const liked = isLiked(product.likes, currentUser._id); //ищем в массиве лайков id текущего пользователя.
-        api.changeLikeProduct(product._id, liked).then((newCard) => { // в зависимости от того есть ли лайки или нет отправляем запрос "DELETE" или "PUT"
+        return  api.changeLikeProduct(product._id, liked).then((newCard) => { // в зависимости от того есть ли лайки или нет отправляем запрос "DELETE" или "PUT"
             const newCards = cards.map((card) => {
                 // console.log('Карточка в переборе', card);
                 // console.log('Карточка с сервера', newCard);
                 return card._id === newCard._id ? newCard : card;
-             })
+            })
+
+            if (!liked) {
+                setFavourites(prevState => [...prevState, newCard])
+            } else {
+                setFavourites(prevState => prevState.filter(card => card._id !== newCards._id))
+            }
+
             setCards(newCards);
+            return newCard;
         })
-    }
+    }, [cards, currentUser])
 
     return (
         <UserContext.Provider value={{user: currentUser, isLoading}}> {/* Внедряем данные из стейта currentUser  с помощью провайдера контекста*/}
-            <CardContext.Provider value={{cards, handleLike: handleProductLike}}>
+            <CardContext.Provider value={{cards, favourites, handleLike: handleProductLike, isLoading}}>
             <Header user={currentUser} updateUserHandle={handleUpdateUser}> {/*Всем дочерним элементам доступен контекст*/}
                 <Logo className='logo logo_place_header' href='/' />
                 <Routes>
@@ -92,6 +106,7 @@ function Application() {
                     <Route index element={<CatalogPage />} />
                     <Route path="/product/:productId" element={<ProductPage />} />
                     <Route path="*" element={<NotFoundPage />} />
+                    <Route path="/favourites" element={<FavouritesPage />} />
                 </Routes>
             </main>
             <Footer />
